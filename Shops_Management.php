@@ -65,7 +65,7 @@
         <?php
         include_once("conection.php");
         $No = 1;
-        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone, shop_image FROM public.shops");
+        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone FROM public.shops");
         while ($row = pg_fetch_assoc($result)) {
         ?>
           <tr>
