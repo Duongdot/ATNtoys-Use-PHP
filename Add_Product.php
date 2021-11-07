@@ -69,7 +69,7 @@
 		} else {
 			if ($pic['type'] == "image/jpg"  || $pic['type'] == "image/jpeg" || $pic['type'] == "image/png" || $pic['type'] == "image/gif") {
 				if ($pic['size'] <= 614400) {
-					$sq = "SELECT * from public.product where product_id='$id' or product_name='proname'";
+					$sq = "SELECT * from public.product where product_id='$id' or product_name='$proname'";
 					$result = pg_query($conn, $sq);
 					if (pg_num_rows($result) == 0) {
 						copy($pic['tmp_name'], "./tree/img/" . $pic['name']);
