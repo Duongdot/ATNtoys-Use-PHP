@@ -38,29 +38,6 @@
 			{
 				echo "<ul>$err</ul>";
 			}
-			else
-			{
-                    if ($pic['type'] == "image/jpg"  || $pic['type'] == "image/jpeg" || $pic['type'] == "image/png" || $pic['type'] == "image/gif") {
-                        if ($pic['size'] <= 614400) {
-                            $sq = "SELECT * from public.shops where shop_id='$id' or shop_name='$name'";
-                            $result = pg_query($conn, $sq);
-                            if (pg_num_rows($result) == 0) {
-                                copy($pic['tmp_name'], "./tree/img/" . $pic['name']);
-                                $_filePic = $pic['name'];
-                                $sqlstring = "INSERT INTO shops (shop_id, shop_name, phone, email, address, shop_image) 
-                                VALUES ('$id','$name', $phone,'$email', '$address','$pic')";
-                                pg_query($conn, $sqlstring);
-                                echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
-                            } else {
-                                echo "<li>duplicate product</li>";
-                            }
-                        } else {
-                            echo "<li>image big</li>";
-                        }
-                    } else {
-                        echo "<li>image format is not correct</li>";
-                    }
-                }
 		}
 	?>
 
