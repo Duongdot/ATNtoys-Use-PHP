@@ -27,7 +27,7 @@
               }
 
 
-              while ($row = pg_fetch_array($result, pg_ASSOC)) {
+              while ($row = pg_fetch_array($result, PGSQL_ASSOC)) {
               ?>
             <div class="col">
               <div class="card h-100">

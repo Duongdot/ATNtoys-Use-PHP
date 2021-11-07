@@ -22,11 +22,11 @@
     include_once("conection.php");
 	if(isset($_GET["id"])){
 		$id = $_GET["id"];
-		$result = pg_query($conn, "SELECT * FROM public.category WHERE Cat_ID = '$id' ");
-		$row = pg_fetch_array($result, pg_ASSOC);
-		$cat_id = $row ['Cat_ID'];
-		$cat_name = $row ['Cat_Name'];
-		$cat_des = $row ['Cat_Des'];
+		$result = pg_query($conn, "SELECT * FROM public.category WHERE cat_id = '$id' ");
+		$row = pg_fetch_assoc($result);
+		$cat_id = $row ['cat_id'];
+		$cat_name = $row ['cat_name'];
+		$cat_des = $row ['cat_des'];
 	?>
 
 
@@ -90,11 +90,11 @@
 		}
 		else
 		{
-			$sq="SELECT * From public.category where Cat_ID != '$id' and Cat_Name='$name'";
+			$sq="SELECT * From public.category where cat_id != '$id' and cat_name='$name'";
 			$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
-				pg_query($conn, "UPDATE category SET Cat_Name = '$name', Cat_Des= '$des' where Cat_ID = '$id'");
+				pg_query($conn, "UPDATE category SET cat_name = '$name', cat_des= '$des' where cat_id = '$id'");
 				echo '<meta http-equiv="refresh" content="0;URL=?page=category_management"/>';
 			}
 			else
@@ -104,10 +104,6 @@
 		}
 	}
 	?>
-
-
-
- 
 </body>
 </html>
 

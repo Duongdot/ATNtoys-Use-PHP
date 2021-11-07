@@ -36,14 +36,14 @@
         }
         else{
             include_once("conection.php");
-            $us = pg_real_escape_string($conn, $us);
+            $us = pg_escape_string($conn, $us);
             $pass = md5($pa);
-            $res = pg_query($conn, "SELECT Username, Password,state FROM public.Customer WHERE Username='$us' AND Password='$pass'")
+            $res = pg_query($conn, "SELECT username, password, state FROM public.customer WHERE username='$us' AND password='$pass'")
             or die (pg_error($conn));
-            $row = pg_fetch_array($res, pg_ASSOC);
+            $row = pg_fetch_assoc($res, PGSQL_ASSOC);
             if (pg_num_rows($res)==1){
                 $_SESSION["us"]= $us;
-                $_SESSION["admin"] = $row["state"];
+                $_SESSION["admin"] = $row["admin"];
                 echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
             }
             else{

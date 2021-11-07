@@ -4,16 +4,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-
-
   <title>Dery</title>
 </head>
-
 <body>
-  
     <?php
-    if (!isset($_SESSION['admin'])or $_SESSION['admin']==0)
+    if (!isset($_SESSION['us'])or $_SESSION['us']==0)
     {
       echo "<script>alert('You are not adminstrator')</script>";
       echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
@@ -50,7 +45,7 @@
                     if(isset($_GET["id"]))
                     {
                         $id = $_GET["id"];
-                        pg_query($conn, "DELETE FROM category WHERE Cat_ID='$id'");
+                        pg_query($conn, "DELETE FROM category WHERE cat_id='$id'");
                     }
                 }
                 ?>
@@ -74,17 +69,15 @@
                 <?php
                     $No=1;
                     $result= pg_query($conn,"SELECT * FROM public.category");
-                    while($row=pg_fetch_array($result, pg_ASSOC))
+                    while ($row = pg_fetch_assoc($result))
                     {   
                 ?>
-               
-
 			<tr>
               <td class="cotCheckBox"><?php echo $No; ?></td>
-              <td><?php echo $row["Cat_Name"]; ?></td>
-              <td><?php echo $row["Cat_Des"]; ?></td>
-              <td style='text-align:center'><a href="?page=update_category&&id=<?php echo $row["Cat_ID"];?>"><img src='./tree/img/edit.png' border='0' width="30" height="30" /></td>
-              <td style='text-align:center'><a href="?page=category_management&&function=del&&id=<?php echo $row["Cat_ID"];?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30"/></a></td>
+              <td><?php echo $row["cat_name"]; ?></td>
+              <td><?php echo $row["cat_des"]; ?></td>
+              <td style='text-align:center'><a href="?page=update_category&&id=<?php echo $row["cat_id"];?>"><img src='./tree/img/edit.png' border='0' width="30" height="30" /></td>
+              <td style='text-align:center'><a href="?page=category_management&&function=del&&id=<?php echo $row["cat_id"];?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30"/></a></td>
             </tr>
             <?php
             $No++;
@@ -92,18 +85,13 @@
             ?>
 			</tbody>
         </table>  
-        
-        
-      
         <div class="row" style="background-color:#FFF">	
             </div>
         </div>
- </form>
-
+        </form>
 <?php
     }
 ?>
- 
 </body>
 </html>
 

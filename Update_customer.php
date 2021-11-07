@@ -4,7 +4,7 @@ $query = "SELECT CustName, Address, email, telephone
 FROM public.customer
 where Username='" . $_SESSION["us"] . "'";
 $result = pg_query($conn, $query) or die(pg_error($conn));
-$row = pg_fetch_array($result, pg_ASSOC);
+$row = pg_fetch_array($result, PGSQL_ASSOC);
 $us = $_SESSION["us"];
 $email = $row["email"];
 $fullname = $row["CustName"];
@@ -59,14 +59,14 @@ function check()
 
 			<label for="lblTenDangNhap" class="col-sm-2 control-label">Username(*): </label>
 			<div class="col-sm-10">
-				<label class="form-control" style="font-weight:400"><?php echo $us; ?></label>
+				<label class="form-control" style="font-weight:400"><?php echo $us ?></label>
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="lblEmail" class="col-sm-2 control-label">Email(*): </label>
 			<div class="col-sm-10">
-				<label class="form-control" style="font-weight:400"><?php echo $email; ?></label>
+				<label class="form-control" style="font-weight:400"><?php echo $email?></label>
 			</div>
 		</div>
 
@@ -87,7 +87,7 @@ function check()
 		<div class="form-group">
 			<label for="lblHoten" class="col-sm-2 control-label">Full name(*): </label>
 			<div class="col-sm-10">
-				<input type="text" name="txtFullname" id="txtFullname" value="<?php echo $fullname; ?>" class="form-control" placeholder="Enter Fullname, please" />
+				<input type="text" name="txtFullname" id="txtFullname" value="<?php echo $fullname?>" class="form-control" placeholder="Enter Fullname, please" />
 			</div>
 		</div>
 

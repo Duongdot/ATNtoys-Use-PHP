@@ -9,60 +9,16 @@
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Office Equipment
+              Toys Lego
             </button>
           </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Stapler</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Punches Cutlery </a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Compa</a>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Booklet
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">The notebook</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Form</a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Pen
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Ballpoint Pen</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Pen case</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Pen accessories</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Glow Specialized pen</a>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Device
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">USB Keyboard</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">Mouse</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">The battery</a>
-              <a href="#sessionproduct" class="list-group-item list-group-item-action">CD - DVD</a>
-            </div>
-          </div>
+         
+          <ul class="list-group">
+            <li class="list-group-item">LEGO Education</li>
+            <li class="list-group-item">LEGO Ninjago</li>
+            <li class="list-group-item">LEGO City</li>
+          </ul>
+
         </div>
       </div>
     </div> <!-- end category-->
@@ -77,7 +33,7 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="./tree/img/slide3.jpg" class="d-block w-100" alt="slide1" width="500" height="500">
+            <img src="./tree/img/slide3.png" class="d-block w-100" alt="slide1" width="500" height="500">
             <div class="carousel-caption d-none d-md-block">
               <h5>Wellcome to Dery</h5>
               <p>Have a good day</p>
@@ -86,13 +42,13 @@
           <div class="carousel-item">
             <img src="./tree/img/slide4.png" class="d-block w-100" alt="slide2" width="500" height="450">
             <div class="carousel-caption d-none d-md-block">
-              <p>Solutions for the office</p>
+              <p>SALE 20%</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="./tree/img/slide2.png" class="d-block w-100" alt="slide3" width="500" height="450">
             <div class="carousel-caption d-none d-md-block">
-              <p>Solution for school</p>
+              <p>SALE 50%</p>
             </div>
           </div>
         </div>
@@ -124,35 +80,32 @@
                         <!--Load Product DB -->
                            <?php
 						  // 	include_once("database.php");
-		  				   	$result = pg_query($conn, "SELECT * FROM public.product" );
+		  				   	$result = pg_query($conn, "SELECT * FROM public.product");
 			
-			                if (!$result) { //add this check.
-                                die('Invalid query: ' . pg_error($conn));
-                            }
-		
-			            
-			                while($row = pg_fetch_array($result, pg_ASSOC)){
-				            ?>
-				         
+                   if (!$result) {
+                    echo "An error occurred.\n";
+                    exit;
+                  }       
+                  while ($row = pg_fetch_assoc($result)) {
+                  ?>
                             <div class="single-product">
                                 <div class="product-f-image">
-                                    <img src="./tree/img/<?php echo $row['Pro_image']?>" width="150" height="150">
+                                    <img src="./tree/img/<?php echo $row['pro_image']?>" width="150" height="150">
                                     <div class="product-hover">
                                         <a href="?page=cart" class="add-to-cart-link" ><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 
-                                <h2><a href="?page=quanly_chitietsanpham&ma=<?php echo  $row['Product_ID']?>"><?php echo  $row['Product_Name']?></a></h2>
+                                <h2><a href="?page=quanly_chitietsanpham&ma=<?php echo  $row['product_id']?>"><?php echo  $row["product_name"]?></a></h2>
                                 
                                 <div class="product-carousel-price">
-                                    <ins><?php echo  $row['Price']?></ins> <del><?php echo  $row['oldPrice']?></del>
+                                    <ins>Price:$<?php echo  $row['price']?></ins> 
                                 </div> 
                             </div>
                 
                 <?php
                 }
                 ?>
-
                         </div>
                     </div>
                 </div>
@@ -170,27 +123,24 @@
               <!--Load Product DB -->
               <?php
               // 	include_once("database.php");
-              $result = pg_query($conn, "SELECT * FROM product");
+              $result = pg_query($conn, "SELECT * FROM public.product");
 
               if (!$result) { //add this check.
                 die('Invalid query: ' . pg_error($conn));
-              }
-
-
-              while ($row = pg_fetch_array($result, pg_ASSOC)) {
-              ?>
+              }     
+            while ($row = pg_fetch_assoc($result)) {
+            ?>
             <div class="col">
               <div class="card h-100">
-                <img src="./tree/img/<?php echo $row['Pro_image']?>" class="card-img-top" alt="..." width="50" height="50" >
+                <img src="./tree/img/<?php echo $row ['pro_image'] ?>" class="card-img-top" alt="..." width="50" height="50" >
                 <div class="card-body">
-                  <h5 class="card-title"><?php echo  $row['Product_Name']?></h5>
-                  <p class="card-text"><?php echo  $row['Price']?></p>
-                  <p class="card-text"><?php echo  $row['DetailDesc']?></p>
+                  <h5 class="card-title"><?php echo  $row['product_name']?></h5>
+                  <p class="card-text">Price:$<?php echo  $row['price']?></p>
+                  <p class="card-text"><?php echo  $row['detaildesc']?></p>
                   <a href="?page=cart" class="btn btn-primary">Buy</a>
                 </div>
               </div>
             </div>
-
             <?php
 				}
 				?>

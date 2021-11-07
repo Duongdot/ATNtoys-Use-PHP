@@ -15,12 +15,23 @@
 	include_once("conection.php");
 	function blind_Category_List($conn)
 	{
-		$sqlstring = "SELECT Cat_ID, Cat_Name from category";
+		$sqlstring = "SELECT cat_id, cat_name from public.category";
 		$result = pg_query($conn, $sqlstring);
 		echo "<select name='CategoryList' class='form-control'>
 		<option value='0'>Choose category</option>";
-		while ($row = pg_fetch_array($result, pg_ASSOC)) {
-			echo "<option value = '" . $row['Cat_ID'] . "'>" . $row['Cat_Name'] . "</option>";
+		while ($row = pg_fetch_assoc($result)) {
+			echo "<option value = '" . $row['cat_id'] . "'>" . $row['cat_name'] . "</option>";
+		}
+		echo "</select>";
+	}
+	function blind_Shops_List($conn)
+	{
+		$sqlstring = "SELECT shop_id, shop_name from public.shops";
+		$result = pg_query($conn, $sqlstring);
+		echo "<select name='ShopsList' class='form-control'>
+		<option value='0'>Choose Shop</option>";
+		while ($row = pg_fetch_assoc($result)) {
+			echo "<option value = '" . $row['shop_id'] . "'>" . $row['shop_name'] . "</option>";
 		}
 		echo "</select>";
 	}
@@ -33,6 +44,8 @@
 		$qty = $_POST['txtQty'];
 		$pic = $_FILES['txtImage'];
 		$category = $_POST['CategoryList'];
+		$shops = $_POST['ShopsList'];
+		$oldprice = $_POST['txtOldPrice'];
 		$err = "";
 		if (trim($id) == "") {
 			$err .= "<li>enter poduct ID, Please</li>";
@@ -56,13 +69,13 @@
 		} else {
 			if ($pic['type'] == "image/jpg"  || $pic['type'] == "image/jpeg" || $pic['type'] == "image/png" || $pic['type'] == "image/gif") {
 				if ($pic['size'] <= 614400) {
-					$sq = "SELECT * from product where Product_ID='$id' or Product_Name='proname'";
+					$sq = "SELECT * from public.product where product_id='$id' or product_name='proname'";
 					$result = pg_query($conn, $sq);
 					if (pg_num_rows($result) == 0) {
 						copy($pic['tmp_name'], "./tree/img/" . $pic['name']);
 						$_filePic = $pic['name'];
-						$sqlstring = "INSERT INTO product (Product_ID, Product_Name, Price, SmallDesc, DetailDesc, ProDate, Pro_qty, Pro_image, Cat_ID ) 
-						VALUES ('$id','$proname','$price','$short','$detail','" . date('Y-m-d H:i:s') . "', $qty,'$_filePic', '$category')";
+						$sqlstring = "INSERT INTO product (product_id, product_name, price, oldprice, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id , shop_id) 
+						VALUES ('$id','$proname','$price','$oldprice','$short','$detail','" . date('Y-m-d H:i:s') . "', $qty,'$_filePic', '$category','$shops')";
 						pg_query($conn, $sqlstring);
 						echo '<meta http-equiv="refresh" content="0;URL=?page=product_management"/>';
 					} else {
@@ -92,21 +105,34 @@
 					<input type="text" name="txtName" id="txtName" class="form-control" placeholder="Product Name" value='' />
 				</div>
 			</div>
+			<!-- chose category -->
 			<div class="form-group">
 				<label for="" class="col-sm-2 control-label">Product category(*): </label>
 				<div class="col-sm-10">
 					<?php blind_Category_List($conn); ?>
 				</div>
-
 			</div>
-
+			<!-- chose category -->
+			<!-- chose shops -->
+			<div class="form-group">
+				<label for="" class="col-sm-2 control-label">Shops(*): </label>
+				<div class="col-sm-10">
+					<?php blind_Shops_List($conn); ?>
+				</div>
+			</div>
+			<!-- chose shops -->
 			<div class="form-group">
 				<label for="lblGia" class="col-sm-2 control-label">Price(*): </label>
 				<div class="col-sm-10">
 					<input type="text" name="txtPrice" id="txtPrice" class="form-control" placeholder="Price" value='' />
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label for="lblGia" class="col-sm-2 control-label">OldPrice(*): </label>
+				<div class="col-sm-10">
+					<input type="text" name="txtOldPrice" id="txtOldPrice" class="form-control" placeholder="Price" value='' />
+				</div>
+			</div>
 			<div class="form-group">
 				<label for="lblShort" class="col-sm-2 control-label">Short description(*): </label>
 				<div class="col-sm-10">
@@ -139,7 +165,6 @@
 							]
 						});
 					</script>
-
 				</div>
 			</div>
 
@@ -165,10 +190,5 @@
 			</div>
 		</form>
 	</div>
-
-
-
-
 </body>
-
 </html>

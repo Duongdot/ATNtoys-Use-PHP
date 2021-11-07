@@ -30,7 +30,7 @@
   <script src="js/dataTables.bootstrap.min.js"></script>
 
 
-  <title>Dery</title>
+  <title>ATN Shop</title>
 </head>
 
 <body>
@@ -46,13 +46,9 @@
   session_start();
   include_once("conection.php");
   ?>
-
-
-
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.php"><img src="./tree/img/logo1.png" alt="logo" class="logo"></a>
+      <a class="navbar-brand" href="index.php"><img src="./tree/img/logo1.png" alt="logo" class="logo">ATN</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -71,6 +67,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="?page=category_management">Category</a></li>
               <li><a class="dropdown-item" href="?page=product_management">Product</a></li>
+              <li><a class="dropdown-item" href="?page=shops_management">Shops</a></li>
             </ul>
           </li>
 
@@ -88,26 +85,35 @@
             </ul>
           </li>
         </ul>
+        <!-- <ul class="nav-item">
+                <form class="navbar-form navbar-left" action="index.php?page=search" method="post">
+                        <div class="form-group">
+                      
+                        </div>                        
+                </form>
+        </ul> -->
         
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <!-- <form class="d-flex">
+          <ul class="nav navbar-nav navbar-right">
+            <li><button><a href="?page=cart" style="font-size:24px">
+                <i class="fa fa-shopping-cart"></i>Cart</a></button></li>
+          </ul>
+        </form> -->
+        <form class="d-flex" action="index.php?page=search" method="post">
+          <input class="form-control me-2" type="text" name="txtSearch" placeholder="Search" aria-label="Search">
           <button type="button" class="btn btn-info">Search</button>
         </form>
-        <form class="d-flex">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="?page=cart" style="color:#000">
-                <i class="glyphicon glyphicon-shopping-cart"></i></a></li>
-          </ul>
-        </form>
+       
+        
         <form class="d-flex">
           <ul class="nav navbar-nav navbar-right">
             <?php
             if (isset($_SESSION['us']) && $_SESSION['us'] != "") {
             ?>
               <li><a style="color:#000" href="?page=update_customer">
-                  <i class="fa fa-lock"></i>Hi, <?php echo $_SESSION['us'] ?></a></li>
+              <i class="fas fa-user-edit">Hi, <?php echo $_SESSION['us'] ?></i>
               <li><a href="?page=logout" style="color: #000;">
-                  <i class="glyphicon glyphicon-log-out"></i>Logout</a></li>
+              <i class="fas fa-sign-out-alt">Logout</i>
             <?php
             } else {
             ?>
@@ -120,11 +126,10 @@
             ?>
           </ul>
         </form>
-
       </div>
     </div>
   </nav>
-  </div>
+</div>
 
 
   <!-- End Menu -->
@@ -140,6 +145,8 @@
       include_once("Category_Management.php");
     } elseif ($page == "product_management") {
       include_once("Product_Management.php");
+    }elseif ($page == "shops_management") {
+      include_once("Shops_Management.php"); 
     } elseif ($page == "Add_category") {
       include_once("Add_Category.php");
     } elseif ($page == "update_category") {
@@ -155,8 +162,9 @@
     } elseif ($page == "shop") {
       include_once("Product.php");
     } elseif ($page == "cart") {
-      include_once("cart.php");
-    }
+     include_once("cart.php");
+    }else if($page=="search"){
+      include_once("search.php");}
   } else {
     include_once("Content.php");
   }

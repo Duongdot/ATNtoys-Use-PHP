@@ -32,18 +32,18 @@
   if (isset($_GET["function"]) == "del") {
     if (isset($_GET["id"])) {
       $id = $_GET["id"];
-      $sq = "SELECT pro_image from public.product WHERE product_id='$id'";
+      $sq = "SELECT shop_image from public.shop WHERE shop_id='$id'";
       $res = pg_query($conn, $sq);
       $row = pg_fetch_assoc($res, PGSQL_ASSOC);
-      $filePic = $row['pro_image'];
+      $filePic = $row['shop_image'];
       unlink("./tree/img/".$filePic);
-      pg_query($conn, "DELETE FROM public.product WHERE product_id='$id'");
+      pg_query($conn, "DELETE FROM public.shops WHERE shop_id='$id'");
     }
   }
   ?>
 
   <form name="frm" method="post" action="">
-    <h1>Product Management</h1>
+    <h1>Shop Management</h1>
     <p>
       <img src="./tree/img/add.png" alt="" width="16" height="16" border="0" />
       <a href="?page=add_product"> Add new </a>
@@ -52,12 +52,11 @@
       <thead>
         <tr>
           <th><strong>No.</strong></th>
-          <th><strong>Product ID</strong></th>
-          <th><strong>Product Name</strong></th>
-          <th><strong>Price</strong></th>
-          <th><strong>Quantity</strong></th>
-          <th><strong>Category ID</strong></th>
-          <th><strong>Image</strong></th>
+          <th><strong>Shop ID</strong></th>
+          <th><strong>Shop Name</strong></th>
+          <th><strong>Address</strong></th>
+          <th><strong>Phone</strong></th>
+          <th><strong>Shop Image</strong></th>
           <th><strong>Edit</strong></th>
           <th><strong>Delete</strong></th>
         </tr>
@@ -67,22 +66,20 @@
         <?php
         include_once("conection.php");
         $No = 1;
-        $result = pg_query($conn, "SELECT product_id, product_name, price, pro_qty, pro_image, cat_name FROM product a, category b
-                WHERE a.cat_id = b.cat_id ORDER BY prodate DESC");
+        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone, shop_image FROM public.shops");
         while ($row = pg_fetch_assoc($result)) {
         ?>
           <tr>
             <td><?php echo $No; ?></td>
-            <td><?php echo $row["product_id"]; ?></td>
-            <td><?php echo $row["product_name"]; ?></td>
-            <td><?php echo $row["price"]; ?></td>
-            <td><?php echo $row["pro_qty"]; ?></td>
-            <td><?php echo $row["cat_name"]; ?></td>
+            <td><?php echo $row["shop_id"]; ?></td>
+            <td><?php echo $row["shop_name"]; ?></td>
+            <td><?php echo $row["address"]; ?></td>
+            <td><?php echo $row["phone"]; ?></td>
             <td align='center' class='cotNutChucNang'>
               <img src='./tree/img/<?php echo $row['pro_image'] ?>' border='0' width="50" height="50" />
             </td>
             <td align='center' class='cotNutChucNang'><a href="?page=update_product&&id=<?php echo $row["product_id"]; ?>"><img src='./tree/img/edit.png' border='0' width="30" height="30" /></a></td>
-            <td align='center' class='cotNutChucNang'><a href="?page=product_management&&function=del&&id=<?php echo $row["product_id"]; ?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30" /></a></td>
+            <td align='center' class='cotNutChucNang'><a href="?page=shops_management&&function=del&&id=<?php echo $row["product_id"]; ?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30" /></a></td>
           </tr>
         <?php
           $No++;

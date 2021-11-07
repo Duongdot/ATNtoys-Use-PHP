@@ -15,8 +15,6 @@
 </head>
 
 <body>
-    
-	    
 	  <?php
 		include_once("conection.php");
 		if (isset($_POST["btnAdd"]))
@@ -42,13 +40,12 @@
 				$id = htmlspecialchars(pg_real_escape_string($conn,$id));
 				$name = htmlspecialchars(pg_real_escape_string($conn,$name));
 				$des = htmlspecialchars(pg_real_escape_string($conn,$des));
-
-				$sq="SELECT * FROM category where Cat_ID = 'id' or Cat_Name = '$name'";
+				$sq="SELECT * FROM public.category where cat_id = 'id' or cat_name = '$name'";
 				$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
-				pg_query($conn, "INSERT INTO category(Cat_ID, Cat_Name, Cat_Des) VALUES ('$id','$name','$des')");
-				echo '<meta http-equiv="refresh" content="0;URL=?page=category_management"/>';
+				pg_query($conn, "INSERT INTO category(cat_id, cat_name, cat_des) VALUES ('$id','$name','$des')");
+				echo '<meta http-equiv="refresh" content="0;URL=?page=Category_Management"/>';
 			}
 			else
 			{
@@ -90,10 +87,6 @@
 					</div>
 				</form>
 	</div>
-
-
- 
- 
 </body>
 </html>
 
