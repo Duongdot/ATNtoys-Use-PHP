@@ -171,6 +171,10 @@
     {
       include_once("search.php");
     }
+    elseif($page=="shops_management")
+    {
+      include_once("Shops_Management.php");
+    }
   } else {
     include_once("Content.php");
   }
