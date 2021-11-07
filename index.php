@@ -111,9 +111,13 @@
             if (isset($_SESSION['us']) && $_SESSION['us'] != "") {
             ?>
               <li><a style="color:#000" href="?page=update_customer">
-              <i class="fas fa-user-edit">Hi, <?php echo $_SESSION['us'] ?></i>
+              <i class="fas fa-user-edit">Hi, <?php echo $_SESSION['us']?></i>
+              </a>
+              </li>
               <li><a href="?page=logout" style="color: #000;">
               <i class="fas fa-sign-out-alt">Logout</i>
+              </a>
+              </li>
             <?php
             } else {
             ?>
