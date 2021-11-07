@@ -163,8 +163,10 @@
       include_once("Product.php");
     } elseif ($page == "cart") {
      include_once("cart.php");
-    }else if($page=="search"){
-      include_once("search.php");}
+    }elseif($page=="search")
+    {
+      include_once("search.php");
+    }
   } else {
     include_once("Content.php");
   }
