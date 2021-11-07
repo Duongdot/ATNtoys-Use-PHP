@@ -46,7 +46,7 @@
     <h1>Shop Management</h1>
     <p>
       <img src="./tree/img/add.png" alt="" width="16" height="16" border="0" />
-      <a href="?page=add_product"> Add new </a>
+      <a href="?page=add_shop"> Add new </a>
     </p>
     <table id="tableproduct" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>

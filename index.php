@@ -175,6 +175,10 @@
     {
       include_once("Shops_Management.php");
     }
+    elseif($page=="add_shop")
+    {
+      include_once("Add_Shops.php");
+    }
   } else {
     include_once("Content.php");
   }
