@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./tree/css/Style.css">
-  
   <!-- fontAwsomae-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
 <div class="container">
-    <h1 font-color="black"><u>All Product</u></h1>
+    <h1 color="black">All Product</h1>
 </div>
 <div class="container">
     <?php
