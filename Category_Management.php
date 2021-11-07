@@ -29,15 +29,12 @@
                 <tr>
                     <th><strong>No.</strong></th>
                     <th><strong>Category Name</strong></th>
-                     <th><strong>Desscriptin</strong></th>
+                     <th><strong>Description</strong></th>
                     <th><strong>Edit</strong></th>
                     <th><strong>Delete</strong></th>
                 </tr>
              </thead>
-
-            
 			<tbody>
-
             <?php
                 include_once("conection.php");
                 if (isset($_GET["function"]) == "del")
