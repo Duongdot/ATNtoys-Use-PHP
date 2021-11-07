@@ -24,7 +24,6 @@
 			$address = $_POST["txtAddress"];
             $phone = $_POST["txtPhone"];
             $email = $_POST["txtEmail"];
-            $pic = $_FILES['txtImage'];
 			$err = "";
 			if($id=="")
 			{
@@ -37,6 +36,23 @@
 			if($err!=="")
 			{
 				echo "<ul>$err</ul>";
+			}
+            else
+			{
+				$id = htmlspecialchars(pg_escape_string($conn,$id));
+				$name = htmlspecialchars(pg_escape_string($conn,$name));
+				$des = htmlspecialchars(pg_escape_string($conn,$des));
+				$sq="SELECT * FROM public.shops where shop_id = '$id' or shop_name = '$name'";
+				$result = pg_query($conn,$sq);
+			if (pg_num_rows($result)==0)
+			{
+				pg_query($conn, "INSERT INTO shops(shop_id, shop_name, phone, email, address) VALUES ('$id','$name','$phone','$email','$address')");
+				echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
+			}
+			else
+			{
+				echo "<li>duplicate category ID or Name</li>";
+			}
 			}
 		}
 	?>
