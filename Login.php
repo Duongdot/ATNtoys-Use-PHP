@@ -43,7 +43,7 @@
             $row = pg_fetch_array($res, NULL, PGSQL_ASSOC);
             if (pg_num_rows($res)==1){
                 $_SESSION["us"]= $us;
-                $_SESSION["admin"] = $row["admin"];
+                $_SESSION["admin"] = $row["state"];
                 echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
             }
             else{
