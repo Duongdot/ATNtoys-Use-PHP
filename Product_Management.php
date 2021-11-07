@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    if (!isset($_SESSION['us']) or $_SESSION ['us']==0)//==0
+    if (!isset($_SESSION['us']) or $_SESSION ['admin']==0)//==0
     {
       echo "<script>alert('You are not adminstrator')</script>";
       echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
