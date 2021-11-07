@@ -75,12 +75,7 @@
 							      <input type="text" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" value='<?php echo isset($_POST["txtPhone"])?($_POST["txtPhone"]):"";?>'>
 							</div>
 					</div>
-                    <div class="form-group">
-                        <label for="sphinhanh" class="col-sm-2 control-label">Image(*): </label>
-                        <div class="col-sm-10">
-                            <input type="file" name="txtImage" id="txtImage" class="form-control" value="" />
-                        </div>
-			        </div>
+                
                     
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
