@@ -46,16 +46,16 @@
 				$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
-				pg_query($conn, "INSERT INTO shops(shop_id, shop_name, phone, email, address) VALUES ('$id','$name','$phone','$email','$address')");
+				pg_query($conn, "INSERT INTO shops (shop_id, shop_name, phone, email, address) VALUES ('$id','$name','$phone','$email','$address')");
 				echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 			}
 			else
 			{
 				echo "<li>duplicate category ID or Name</li>";
 			}
-			}
 		}
-	?>
+    }
+?>
 
 <div class="container">
 	<h2>Adding Shop</h2>

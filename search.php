@@ -1,5 +1,5 @@
 <div class="container">
-    <h1><u>All Product</u></h1>
+    <h1 font-color="black"><u>All Product</u></h1>
 </div>
 <div class="container">
     <?php
