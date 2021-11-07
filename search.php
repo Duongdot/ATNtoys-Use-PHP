@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
-<div class="container">
-    <h1 color="black">All Product</h1>
-</div>
+<h1>ALL Product</h1>
 <div class="container">
     <?php
 
