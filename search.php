@@ -24,22 +24,22 @@
                                 die('Invalid query: ' . pg_error($conn));
                             }
                             else {
-			                    while($row = pg_fetch_array($result)){
+			                    while($row = pg_fetch_assoc($result)){
 				                  ?>
     <!--Display product-->
-    <div class="col-sm-3">
-        <div class="card">
-            <img src="./tree/img/<?php echo $row['pro_image']?>" style="width:100%">
-            <h4 class="name"><a
-                    href="?page=product_management&ma=<?php echo  $row['product_id']?>"><?php echo  $row['product_name']?></a>
-            </h4>
-            <div class="price"><ins>$ <?php echo  $row['price']?></ins> <del class="oldprice">
-                    $<?php echo  $row['oldPrice']?></del></div>
-            <p><button><a href="?page=cartfuntion&ma=<?php echo  $row['product_id']?>">Add to Cart</a></button></p>
-        </div>
-    </div>
+    <div class="col">
+              <div class="card h-100">
+                <img src="./tree/img/<?php echo $row ['pro_image'] ?>" class="card-img-top" alt="..." width="50" height="50" >
+                <div class="card-body">
+                  <h5 class="card-title"><?php echo  $row['product_name']?></h5>
+                  <p class="card-text">Price:$<?php echo  $row['price']?></p>
+                  <p class="card-text"><?php echo  $row['detaildesc']?></p>
+                  <a href="?page=cart" class="btn btn-primary">Buy</a>
+                </div>
+              </div>
+            </div>
     <?php
-				}
+		}
       }
     }
   }
