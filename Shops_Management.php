@@ -32,11 +32,6 @@
   if (isset($_GET["function"]) == "del") {
     if (isset($_GET["id"])) {
       $id = $_GET["id"];
-      $sq = "SELECT shop_image from public.shop WHERE shop_id='$id'";
-      $res = pg_query($conn, $sq);
-      $row = pg_fetch_assoc($res, PGSQL_ASSOC);
-      $filePic = $row['shop_image'];
-      unlink("./tree/img/".$filePic);
       pg_query($conn, "DELETE FROM public.shops WHERE shop_id='$id'");
     }
   }

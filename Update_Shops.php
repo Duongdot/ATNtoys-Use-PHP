@@ -93,10 +93,10 @@
 	if (isset($_POST["btnUpdate"]))
 	{
 		$id = $_POST["txtID"];
-		$shop_name = $row ['txtName'];
-		$address = $row ['txtAddress'];
-        $email = $row ['txtEmail'];
-        $phone = $row['txtPhone'];
+		$shop_name = $row ["txtName"];
+		$address = $row ["txtAddress"];
+        $email = $row ["txtEmail"];
+        $phone = $row["txtPhone"];
 		if($shop_name=="")
 		{
 			$err .="<li>enter category Name. please</li>"; 
