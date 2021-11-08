@@ -101,10 +101,6 @@
 		{
 			$err .="<li>enter category Name. please</li>"; 
 		}
-		if ($err!="")
-		{
-			echo "<ul>$err</ul>";
-		}
 		else
 		{
 			$sq="SELECT * From public.category where shop_id != '$id' and shop_name='$name'";
