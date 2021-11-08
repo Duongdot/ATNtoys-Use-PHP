@@ -106,7 +106,8 @@
 			$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
-				pg_query($conn, "UPDATE shops SET shop_name = '$shop_name', address = '$address', phone = '$phone', email = '$email' where shop_id = '$id'");
+				$sqlstring="UPDATE shops SET shop_name = '$shop_name', address = '$address', phone = '$phone', email = '$email' where shop_id = '$id'";
+				pg_query($conn,$sqlstring);
 				echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 			}
 			else
