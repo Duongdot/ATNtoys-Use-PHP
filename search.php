@@ -12,29 +12,28 @@
 <body>
 <div class="container">
     <?php
-
-						              include_once("connection.php");
-                                      if (isset($_POST["txtSearch"])) {
-                                          $data = $_POST['txtSearch'];
-                                            if($data=="")
-                                            {
-                                              echo "<script>alert('Please Enter Data!')</script>";
-                                              echo '<meta http-equiv="refresh" content="0;URL=index.php">';
-                                            }
-                                           else {
-		  				   	        $result = pg_query($conn, "SELECT * FROM product where product_id like '%".$data."%' or Product_Name like '%".$data."%'");
-    			                if(pg_num_rows($result)==0)
-                          {
-                            echo  "<script>alert('No find data. Please Enter Again!')</script>";
-                            echo '<meta http-equiv="refresh" content="0;URL=index.php">';
-                          }
-                          else {
-                           if (!$result) { //add this check.
-                                die('Invalid query: ' . pg_error($conn));
-                            }
-                            else {
-			                    while($row = pg_fetch_assoc($result)){
-				                  ?>
+        include_once("conection.php");
+		if (isset($_POST["txtSearch"])) {
+			$data = $_POST['txtSearch'];
+			  if($data=="")
+			  {
+				echo "<script>alert('Please Enter Data!')</script>";
+				echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+			  }
+			 else {
+		   $result = pg_query($conn, "SELECT * FROM product where product_id like '%".$data."%' or Product_Name like '%".$data."%'");
+		if(pg_num_rows($result)==0)
+		{
+		echo  "<script>alert('No find data. Please Enter Again!')</script>";
+		echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+		}
+		else {
+		if (!$result) { //add this check.
+		die('Invalid query: ' . pg_error($conn));
+		}
+		else {
+		while($row = pg_fetch_assoc($result)){
+		?>
     <!--Display product-->
     <div class="container-fluid" id="sessionproduct">
     <div class="container">
