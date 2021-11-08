@@ -27,7 +27,6 @@
 				                  ?>
     <!--Display product-->
     <div class="col">
-              <div class="card h-100">
                 <img src="./tree/img/<?php echo $row ['pro_image'] ?>" class="card-img-top" alt="..." width="50" height="50" >
                 <div class="card-body">
                   <h5 class="card-title"><?php echo  $row['product_name']?></h5>
@@ -35,7 +34,6 @@
                   <p class="card-text"><?php echo  $row['detaildesc']?></p>
                   <a href="?page=cart" class="btn btn-primary">Buy</a>
                 </div>
-              </div>
             </div>
     <?php
 		}
