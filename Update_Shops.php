@@ -24,7 +24,6 @@
 		$id = $_GET["id"];
 		$result = pg_query($conn, "SELECT * FROM public.shops WHERE shop_id = '$id' ");
 		$row = pg_fetch_assoc($result);
-		$shop_id = $row ['shop_id'];
 		$shop_name = $row ['shop_name'];
 		$address = $row ['address'];
         $email = $row ['email'];
@@ -39,7 +38,7 @@
 								<label for="txtTen" class="col-sm-2 control-label">Shop ID(*):  </label>
 								<div class="col-sm-10">
 									<input type="text" name="txtID" id="txtID" class="form-control" placeholder="Shop ID" readonly 
-									value='<?php echo $shop_id; ?>'>
+									value='<?php echo $id; ?>'>
 								</div>
 						</div>	
 					<div class="form-group">
@@ -103,12 +102,12 @@
 		}
 		else
 		{
-			$sq="SELECT * From public.category where shop_id != '$id' and shop_name='$name'";
+			$sq="SELECT * From public.shops where shop_id != '$id' and shop_name='$name'";
 			$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
 				pg_query($conn, "UPDATE shops SET shop_name = '$shop_name', address = '$address', phone = '$phone', email = '$email' where shop_id = '$id'");
-				echo '<meta http-equiv="refresh" content="0;URL=?page=update_shop"/>';
+				echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 			}
 			else
 			{

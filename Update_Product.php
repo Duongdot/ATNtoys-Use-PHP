@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="./tree/img/logo1.png">
   <script type="text/javascript" src="./scripts/ckeditor/ckeditor.js"></script>
-  <title>Dery</title>
+  <title>ATN</title>
 </head>
 
 <body>
