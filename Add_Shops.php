@@ -63,32 +63,32 @@
 				 <div class="form-group">
 						    <label for="txtTen" class="col-sm-2 control-label">Shop ID(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtID" id="txtID" class="form-control" placeholder="Shop ID" value='<?php echo isset($_POST["txtID"])?>'>
+							      <input type="text" name="txtID" id="txtID" class="form-control" placeholder="Shop ID" value='<?php echo isset($_POST["txtID"]);?>'>
 							</div>
 					</div>	
 				 <div class="form-group">
 						    <label for="txtTen" class="col-sm-2 control-label">Shop Name(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtName" id="txtName" class="form-control" placeholder="Shop Name" value='<?php echo isset($_POST["txtName"])?>'>
+							      <input type="text" name="txtName" id="txtName" class="form-control" placeholder="Shop Name" value='<?php echo isset($_POST["txtName"]);?>'>
 							</div>
 					</div>
                     
                     <div class="form-group">
 						    <label for="txtMoTa" class="col-sm-2 control-label">Address(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtAddress" id="txtAddress" class="form-control" placeholder="Address" value='<?php echo isset($_POST["txtAddress"])?>'>
+							      <input type="text" name="txtAddress" id="txtAddress" class="form-control" placeholder="Address" value='<?php echo isset($_POST["txtAddress"]);?>'>
 							</div>
 					</div>
                     <div class="form-group">
 						    <label for="txtMoTa" class="col-sm-2 control-label">Phone(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtPhone" id="txtPhone" class="form-control" placeholder="Phone" value='<?php echo isset($_POST["txtPhone"])?>'>
+							      <input type="text" name="txtPhone" id="txtPhone" class="form-control" placeholder="Phone" value='<?php echo isset($_POST["txtPhone"]);?>'>
 							</div>
 					</div>
                     <div class="form-group">
 						    <label for="txtMoTa" class="col-sm-2 control-label">Email(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" value='<?php echo isset($_POST["txtPhone"])?>'>
+							      <input type="text" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" value='<?php echo isset($_POST["txtEmail"]);?>'>
 							</div>
 					</div>
                 
