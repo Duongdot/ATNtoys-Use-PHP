@@ -179,6 +179,10 @@
     {
       include_once("Add_Shops.php");
     }
+    elseif($page=="update_shop")
+    {
+      include_once("Update_Shops.php");
+    }
   } else {
     include_once("Content.php");
   }
