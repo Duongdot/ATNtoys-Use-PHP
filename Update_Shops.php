@@ -74,7 +74,7 @@
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<input type="submit"  class="btn btn-primary" name="btnUpdate" id="btnUpdate" value="Update"/>
-								<input type="button" class="btn btn-primary" name="btnIgnore"  id="btnIgnore" value="Cancel" onclick="window.location='?page=update_shop'"/>
+								<input type="button" class="btn btn-primary" name="btnIgnore"  id="btnIgnore" value="Cancel" onclick="window.location='?page=shops_management'"/>
 									
 							</div>
 						</div>
@@ -84,7 +84,7 @@
 	<?php
 	}
 	else{
-		echo '<meta http-equiv="refresh" content="0;URL=?page=update_shop"/>';
+		echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 	}
 	?>
 
