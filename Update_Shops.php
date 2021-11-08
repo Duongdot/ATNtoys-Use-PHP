@@ -85,7 +85,7 @@
 	<?php
 	}
 	else{
-		echo '<meta http-equiv="refresh" content="0;URL=?page=update_shop"/>';
+		echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 	}
 	?>
 
