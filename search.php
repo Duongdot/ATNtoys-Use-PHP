@@ -3,17 +3,16 @@
 </div>
 <div class="container">
     <?php
-
-						              include_once("conection.php");
-                                      if (isset($_POST["txtSearch"])) {
-                                          $data = $_POST['txtSearch'];
-                                            if($data=="")
-                                            {
-                                              echo "<script>alert('Please Enter Data!')</script>";
-                                              echo '<meta http-equiv="refresh" content="0;URL=index.php">';
-                                            }
-                                           else {
-		  				   	        $result = pg_query($conn, "SELECT * FROM product where product_id like '%".$data."%' or Product_Name like '%".$data."%'");
+		include_once("conection.php");
+            if (isset($_POST["txtSearch"])) {
+                $data = $_POST['txtSearch'];
+                    if($data=="")
+                        {
+                         echo "<script>alert('Please Enter Data!')</script>";
+                         echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+                        }
+                        else {
+		  				   	 $result = pg_query($conn, "SELECT * FROM product where product_id like '%".$data."%' or Product_Name like '%".$data."%'");
     			                if(pg_num_rows($result)==0)
                           {
                             echo  "<script>alert('No find data. Please Enter Again!')</script>";

@@ -99,7 +99,7 @@
                 <i class="fa fa-shopping-cart"></i>Cart</a></button></li>
           </ul>
         </form> -->
-        <form class="d-flex" action="index.php?page=search" method="post">
+        <form class="d-flex" action="?page=search" method="post">
           <input class="form-control me-2" type="text" name="txtSearch" placeholder="Search" aria-label="Search">
           <button type="button" class="btn btn-info">Search</button>
         </form>
