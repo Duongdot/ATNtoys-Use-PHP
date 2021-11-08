@@ -101,7 +101,7 @@
         </form> -->
         <form class="d-flex" action="index.php?page=search" method="post">
           <input class="form-control me-2" type="text" name="txtSearch" placeholder="Search" aria-label="Search">
-          <button type="button" class="btn btn-info">Search</button>
+          <button type="submit" class="btn btn-info">Search</button>
         </form>
        
         
