@@ -93,9 +93,14 @@
 		$address = $row ["txtAddress"];
         $email = $row ["txtEmail"];
         $phone = $row["txtPhone"];
+		$err = "";
 		if($shop_name=="")
 		{
 			$err .="<li>enter category Name. please</li>"; 
+		}
+		if ($err!="")
+		{
+			echo "<ul>$err</ul>";
 		}
 		else
 		{
@@ -103,8 +108,7 @@
 			$result = pg_query($conn,$sq);
 			if (pg_num_rows($result)==0)
 			{
-				$sqlstring="UPDATE shops SET shop_name = '$shop_name', address = '$address', phone = '$phone', email = '$email' where shop_id = '$id'";
-				pg_query($conn,$sqlstring);
+				pg_query($conn,"UPDATE shops SET shop_name = '$shop_name', address = '$address', phone = '$phone', email = '$email' where shop_id = '$id'");
 				echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 			}
 			else
