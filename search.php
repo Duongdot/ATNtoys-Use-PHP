@@ -1,7 +1,6 @@
 <div class="container">
 </div>
 <div class="container">
-	<h1>ALL PRODUCT</h1>
     <?php
 		include_once("conection.php");
             if (isset($_POST["txtSearch"])) {
