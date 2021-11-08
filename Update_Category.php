@@ -28,8 +28,6 @@
 		$cat_name = $row ['cat_name'];
 		$cat_des = $row ['cat_des'];
 	?>
-
-
 	<div class="container">
 		<h2>Updating Product Category</h2>
 					<form id="form1" name="form1" method="post" action="" class="form-horizontal" role="form">

@@ -18,7 +18,7 @@
 
 <body>
  
-	  <?php
+	<?php
     include_once("conection.php");
 	if(isset($_GET["id"])){
 		$id = $_GET["id"];
@@ -29,8 +29,6 @@
         $email = $row ['email'];
         $phone = $row['phone'];
 	?>
-
-
 	<div class="container">
 		<h2>Updating Shop</h2>
 					<form id="form1" name="form1" method="post" action="" class="form-horizontal" role="form">
@@ -80,15 +78,14 @@
 						</div>
 					</form>
 		</div>
-
-	<?php
+		<?php
 	}
 	else{
 		echo '<meta http-equiv="refresh" content="0;URL=?page=shops_management"/>';
 	}
 	?>
 
-    <?php
+<?php
 	if (isset($_POST["btnUpdate"]))
 	{
 		$id = $_POST["txtID"];
