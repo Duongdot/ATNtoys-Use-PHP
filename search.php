@@ -31,7 +31,7 @@
         <div class="card">
             <img src="./tree/img/<?php echo $row['pro_image']?>" style="width:100%">
             <h4 class="name"><a
-                    href="?page=quanly_chitietsanpham&ma=<?php echo  $row['product_id']?>"><?php echo  $row['product_name']?></a>
+                    href="?page=product_management&ma=<?php echo  $row['product_id']?>"><?php echo  $row['product_name']?></a>
             </h4>
             <div class="price"><ins>$ <?php echo  $row['price']?></ins> <del class="oldprice">
                     $<?php echo  $row['oldPrice']?></del></div>
