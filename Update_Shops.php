@@ -98,7 +98,7 @@
         $email = $row ['txtEmail'];
         $phone = $row['txtPhone'];
 		$err = "";
-		if($name=="")
+		if($shop_name=="")
 		{
 			$err .="<li>enter category Name. please</li>"; 
 		}
