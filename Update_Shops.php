@@ -96,11 +96,7 @@
 		$err = "";
 		if($shop_name=="")
 		{
-			$err .="<li>enter category Name. please</li>"; 
-		}
-		if ($err!="")
-		{
-			echo "<ul>$err</ul>";
+			$err .="<li>enter shop Name. please</li>"; 
 		}
 		else
 		{
