@@ -60,7 +60,7 @@
         <?php
         include_once("conection.php");
         $No = 1;
-        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone FROM public.shops");
+        $result = pg_query($conn, "SELECT shop_id, shop_name ,address, phone,email FROM public.shops");
         while ($row = pg_fetch_assoc($result)) {
         ?>
           <tr>
@@ -69,6 +69,7 @@
             <td><?php echo $row["shop_name"]; ?></td>
             <td><?php echo $row["address"]; ?></td>
             <td><?php echo $row["phone"]; ?></td>
+            <td><?php echo $row["email"]; ?></td>
             <td align='center' class='cotNutChucNang'><a href="?page=update_shop&&id=<?php echo $row["shop_id"]; ?>"><img src='./tree/img/edit.png' border='0' width="30" height="30" /></a></td>
             <td align='center' class='cotNutChucNang'><a href="?page=shops_management&&function=del&&id=<?php echo $row["shop_id"]; ?>" onclick="return deleteConfirm()"><img src='./tree/img/delete.png' border='0' width="30" height="30" /></a></td>
           </tr>
