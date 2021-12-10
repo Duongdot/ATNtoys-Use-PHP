@@ -25,7 +25,7 @@
 			                    while($row = pg_fetch_assoc($result)){
 				                  ?>
     <!--Display product-->
-			<div class="col-sm-3">
+<div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card">
 		<img src="./tree/img/<?php echo $row ['pro_image'] ?>" class="card-img-top" alt="..." width="50" height="50" >
                 <div class="card-body">
@@ -35,7 +35,7 @@
                   <a href="?page=cart" class="btn btn-primary">Buy</a>
                 </div>
         </div>
-    </div>
+  </div>
     <?php
 		}
       }
