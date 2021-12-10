@@ -22,10 +22,11 @@
                                 die('Invalid query: ' . pg_error($conn));
                             }
                             else {
-			                    while($row = pg_fetch_assoc($result)){
-				                  ?>
+			                   
     <!--Display product-->
 <div class="row">
+	     while($row = pg_fetch_assoc($result)){
+				                  ?>
 	<div class="col-4">
         <div class="card">
 		<img src="./tree/img/<?php echo $row ['pro_image'] ?>" class="card-img-top" alt="..." width="50" height="50" >
